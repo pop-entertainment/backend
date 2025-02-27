@@ -12,11 +12,15 @@ public class ProductInfoConfiguration : IEntityTypeConfiguration<ProductInfo>
         
         builder.HasKey(p => p.Id);
         
-        builder.Property(p => p.Name)
+        builder.Property(p => p.Title)
             .IsRequired()
             .HasMaxLength(200);
         
         builder.Property(p => p.Price)
+            .IsRequired()
+            .HasColumnType("decimal(18,2)");
+        
+        builder.Property(p => p.Discount)
             .IsRequired()
             .HasColumnType("decimal(18,2)");
         

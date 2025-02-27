@@ -5,7 +5,7 @@ namespace Store.Data.Entities;
 
 public class ProductInfo : BaseEntity
 {
-    public string Name { get; set; }
+    public string Title { get; set; }
 
     public decimal Price { get; set; }
 
@@ -14,6 +14,9 @@ public class ProductInfo : BaseEntity
     public ProductStatus Status { get; set; }
 
     public string ImagePath { get; set; }
+    
+    //процент скидки
+    public decimal Discount { get; set; }
 
     public Guid CategoryId { get; set; }
     public ProductCategory Category { get; set; }

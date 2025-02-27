@@ -16,7 +16,8 @@ public class ClientOrderConfiguration : IEntityTypeConfiguration<ClientOrder>
             .IsRequired();
         
         builder.Property(o => o.TotalAmount)
-            .IsRequired();
+            .IsRequired()
+            .HasColumnType("decimal(18,2)");
         
         builder.HasMany(o => o.OrderItems)
             .WithOne(oi => oi.ClientOrder)
