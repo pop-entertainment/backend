@@ -2,9 +2,6 @@
 
     <PropertyGroup>
         <TargetFramework>net8.0</TargetFramework>
+        <RootNamespace>Store.Domain</RootNamespace>
     </PropertyGroup>
-
-    <ItemGroup>
-      <Folder Include="Abstractions\" />
-    </ItemGroup>
 </Project>
