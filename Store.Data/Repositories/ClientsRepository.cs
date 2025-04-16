@@ -30,6 +30,7 @@ public class ClientsRepository : IClientsRepository
     public void Add(ClientInfo clientInfo)
     {
         _dbSet.Add(clientInfo);
+        
     }
 
     public void Update(ClientInfo clientInfo)

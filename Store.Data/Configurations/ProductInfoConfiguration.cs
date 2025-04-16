@@ -21,7 +21,6 @@ public class ProductInfoConfiguration : IEntityTypeConfiguration<ProductInfo>
             .HasColumnType("decimal(18,2)");
         
         builder.Property(p => p.Discount)
-            .IsRequired()
             .HasColumnType("decimal(18,2)");
         
         builder.Property(p => p.Description)

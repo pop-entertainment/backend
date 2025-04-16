@@ -29,11 +29,15 @@ public class ProductCategoriesRepository : IProductCategoriesRepository
 
     public void Add(ProductCategory productCategory)
     {
+        productCategory.Id = Guid.NewGuid();
+        productCategory.CreatedOn = DateTime.UtcNow;
+        productCategory.ModifiedOn = DateTime.UtcNow;
         _dbSet.Add(productCategory);
     }
 
     public void Update(ProductCategory productCategory)
     {
+        productCategory.ModifiedOn = DateTime.UtcNow;
         _dbSet.Update(productCategory);
     }
 
