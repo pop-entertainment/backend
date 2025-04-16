@@ -6,11 +6,16 @@ namespace Store.Domain.Entities;
 
 public class ClientOrder : BaseEntity
 {
+    // /// <summary>
+    // /// Клиент, сделавший заказ
+    // /// </summary>
+    // public Guid ClientId { get; set; }
+    // public ClientInfo Client { get; set; }
+    
     /// <summary>
-    /// Клиент, сделавший заказ
+    /// Номер телефона клиента сделавшего заказ
     /// </summary>
-    public Guid ClientId { get; set; }
-    public ClientInfo Client { get; set; }
+    public string ClientPhone { get; set; }
     
     /// <summary>
     /// Дата оформления заказа
