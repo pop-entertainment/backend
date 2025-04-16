@@ -1,7 +1,19 @@
 version: '3.9'
 services:
+    web:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        links:
+            - postgres
+        container_name: store_web
+        ports:
+            - "5000:8080"
+        environment:
+            - ASPNETCORE_ENVIRONMENT=Development
+            - ConnectionStrings__StoreDbContext=User ID=postgres;Password=1234;Host=postgres;Port=5432;Database=storeDb;
     postgres:
-        container_name: postgres
+        container_name: store_db
         image: postgres:latest
         environment:
             POSTGRES_DB: "storeDb"
@@ -10,7 +22,7 @@ services:
         volumes:
             - postgres-data:/var/lib/postgresql/data
         ports:
-            - '5432:5432'
+            - '0.0.0.0:5432:5432'
 
 volumes:
     postgres-data:
