@@ -9,4 +9,9 @@ public interface IProductInfosRepository
     void Add(ProductInfo productInfo);
     void Update(ProductInfo productInfo);
     void Remove(ProductInfo productInfo);
+
+    Task<IEnumerable<ProductInfo>> GetAllByCategoryIdAsync(Guid categoryId,
+        CancellationToken cancellationToken);
+
+    Task<IEnumerable<ProductInfo>> GetNewProductsAsync(int count, CancellationToken cancellationToken);
 }

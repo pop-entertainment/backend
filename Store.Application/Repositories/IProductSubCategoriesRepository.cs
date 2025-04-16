@@ -9,4 +9,5 @@ public interface IProductSubCategoriesRepository
     void Add(ProductSubCategory subCategory);
     void Update(ProductSubCategory subCategory);
     void Remove(ProductSubCategory subCategory);
+    Task<List<ProductSubCategory>> GetAllByCategoryIdAsync(Guid categoryId, CancellationToken cancellationToken);
 }
