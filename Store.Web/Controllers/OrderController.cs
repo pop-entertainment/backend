@@ -22,7 +22,7 @@ public class OrderController : ControllerBase
         return orders;
     }
 
-    [HttpGet("{id}")]
+    [HttpGet("GetOrder/{id}")]
     public async Task<OrderDto> GetOrderByIdAsync(Guid id, CancellationToken cancellationToken)
     {
         var order = await _orderService.GetOrderAsync(id, cancellationToken);

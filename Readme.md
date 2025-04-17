@@ -1,6 +1,8 @@
 # Описание
 Сервис интернет-магазина товаров для рукоделия
 
+Основную информацию смотрите в [документации](https://docs.google.com/document/d/1P3uVEATefHxcxj-jKH4acKeJyOVQBqeSlbtKDuyILrs/edit?usp=sharing).
+
 ## Сущности
 
 | Сущность     | Описание                                                                     |

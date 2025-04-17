@@ -18,6 +18,7 @@
 * Добавлен AutoMapper (backend-7)
 * Добавлены контроллеры (backend-7)
 * Добавлен dockerfile
+* Добавлены unit tests (backend-9)
 
 ### Изменено
 * Изменена архитектура проекта
