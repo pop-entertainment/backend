@@ -30,7 +30,7 @@ public class SubCategoryController : ControllerBase
     }
 
     [HttpPost("CreateSubCategory")]
-    public async Task<SubCategoryDto> AddSubCategoryAsync([FromBody] CreateSubCategoryDto createSubCategoryDto,
+    public async Task<SubCategoryDto> CreateSubCategoryAsync([FromBody] CreateSubCategoryDto createSubCategoryDto,
         CancellationToken cancellationToken)
     {
         var subCategory = await _productService.CreateSubCategoryAsync(createSubCategoryDto, cancellationToken);

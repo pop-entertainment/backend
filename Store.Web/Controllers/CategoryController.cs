@@ -16,7 +16,7 @@ public class CategoryController : ControllerBase
     }
 
     [HttpGet("GetAllCategories")]
-    public async Task<IEnumerable<CategoryDto>> GetAllCategories(CancellationToken cancellationToken)
+    public async Task<IEnumerable<CategoryDto>> GetAllCategoriesAsync(CancellationToken cancellationToken)
     {
         var categories = await _productService.GetAllCategoriesAsync(cancellationToken);
         return categories;
@@ -30,14 +30,14 @@ public class CategoryController : ControllerBase
     }
 
     [HttpPost("CreateCategory")]
-    public async Task<CategoryDto> AddCategory([FromBody] CreateCategoryDto createCategoryDto, CancellationToken cancellationToken)
+    public async Task<CategoryDto> CreateCategoryAsync([FromBody] CreateCategoryDto createCategoryDto, CancellationToken cancellationToken)
     {
         var category = await _productService.CreateCategoryAsync(createCategoryDto, cancellationToken);
         return category;
     }
 
     [HttpPut("UpdateCategory")]
-    public async Task<CategoryDto> UpdateCategory(Guid id, [FromBody] UpdateCategoryDto updateCategoryDto,
+    public async Task<CategoryDto> UpdateCategoryAsync(Guid id, [FromBody] UpdateCategoryDto updateCategoryDto,
         CancellationToken cancellationToken)
     {
         var category = await _productService.UpdateCategoryAsync(id, updateCategoryDto, cancellationToken);
@@ -45,7 +45,7 @@ public class CategoryController : ControllerBase
     }
 
     [HttpDelete("DeleteCategory/{id}")]
-    public async Task<IActionResult> DeleteCategory(Guid id, CancellationToken cancellationToken)
+    public async Task<IActionResult> DeleteCategoryAsync(Guid id, CancellationToken cancellationToken)
     {
         await _productService.DeleteCategoryAsync(id, cancellationToken);
         return StatusCode(StatusCodes.Status204NoContent);
