@@ -4,6 +4,7 @@ using Store.Application.Interfaces;
 
 namespace Store.Web.Controllers;
 
+[ApiController]
 [Route("api/[controller]")]
 public class SubCategoryController : ControllerBase
 {
