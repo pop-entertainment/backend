@@ -10,7 +10,9 @@
 ## Используемые технологии
 
 * AspNet 8.0
-* EF.Core 8.0
+* EF.Core 9.0
+* AutoMapper 14.0.0
+* FluentValidation.AspNetCore 11.3
 * Docker
 
 Поддерживаемые провайдеры СУБД:
