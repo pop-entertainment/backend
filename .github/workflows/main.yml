@@ -39,7 +39,7 @@ jobs:
         uses: appleboy/ssh-action@v1.2.2
         with:
           host: ${{ secrets.SERVER_ADDR }}
-          username: front
+          username: backend
           key: ${{ secrets.PRIVATE_KEY }}
           script: |
             cd /home/backend/cicd
