@@ -3,8 +3,8 @@ WORKDIR /app
 
 COPY . .
 
-RUN dotnet restore src/Store.Web/Store.Web.csproj
-RUN dotnet publish src/Store.Web/Store.Web.csproj -c Release -o /app/publish
+RUN dotnet restore Store.Web/Store.Web.csproj
+RUN dotnet publish Store.Web/Store.Web.csproj -c Release -o /app/publish
 
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS final
 WORKDIR /app
