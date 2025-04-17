@@ -38,9 +38,9 @@ public class ClientInfoConfiguration : IEntityTypeConfiguration<ClientInfo>
         builder.HasIndex(c => c.Email)
             .IsUnique();
         
-        builder.HasMany(c => c.Orders)
-            .WithOne(o => o.Client)
-            .HasForeignKey(o => o.ClientId)
-            .OnDelete(DeleteBehavior.Cascade);
+        // builder.HasMany(c => c.Orders)
+        //     .WithOne(o => o.Client)
+        //     .HasForeignKey(o => o.ClientId)
+        //     .OnDelete(DeleteBehavior.Cascade);
     }
 }

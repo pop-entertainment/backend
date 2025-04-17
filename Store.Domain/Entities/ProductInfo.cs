@@ -32,9 +32,14 @@ public class ProductInfo : BaseEntity
     public string ImagePath { get; set; }
 
     /// <summary>
-    /// процент скидки
+    /// Процент скидки
     /// </summary>
     public decimal Discount { get; set; }
+    
+    /// <summary>
+    /// Количество товара
+    /// </summary>
+    public int Quantity { get; set; }
 
     public Guid CategoryId { get; set; }
     public ProductCategory Category { get; set; }

@@ -12,6 +12,9 @@ public class ClientOrderConfiguration : IEntityTypeConfiguration<ClientOrder>
         
         builder.HasKey(o => o.Id);
 
+        builder.Property(o => o.ClientPhone)
+            .IsRequired();
+
         builder.Property(o => o.OrderDate)
             .IsRequired();
         

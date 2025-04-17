@@ -29,11 +29,15 @@ public class ClientOrdersRepository : IClientOrdersRepository
 
     public void Add(ClientOrder clientOrder)
     {
+        clientOrder.Id = Guid.NewGuid();
+        clientOrder.CreatedOn = DateTime.UtcNow;
+        clientOrder.ModifiedOn = DateTime.UtcNow;
         _dbSet.Add(clientOrder);
     }
 
     public void Update(ClientOrder clientOrder)
     {
+        clientOrder.ModifiedOn = DateTime.UtcNow;
         _dbSet.Update(clientOrder);
     }
 

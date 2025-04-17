@@ -24,16 +24,20 @@ public class OrderItemsRepository : IOrderItemsRepository
     
     public async Task<OrderItem> GetAsync(Guid id, CancellationToken cancellationToken = default)
     {
-        return await _dbSet.FirstOrDefaultAsync(e => e.Id == id, cancellationToken);
+        return await _dbSet.FirstOrDefaultAsync(e => e.ClientOrderId == id, cancellationToken);
     }
 
     public void Add(OrderItem orderItem)
     {
+        orderItem.Id = Guid.NewGuid();
+        orderItem.CreatedOn = DateTime.UtcNow;
+        orderItem.ModifiedOn = DateTime.UtcNow;
         _dbSet.Add(orderItem);
     }
 
     public void Update(OrderItem orderItem)
     {
+        orderItem.ModifiedOn = DateTime.UtcNow;
         _dbSet.Update(orderItem);
     }
 

@@ -27,5 +27,5 @@ public class ClientInfo : BaseEntity
     /// </summary>
     public string Email { get; set;}
 
-    public ICollection<ClientOrder> Orders { get; set; }
+    // public ICollection<ClientOrder> Orders { get; set; }
 }

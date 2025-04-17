@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
@@ -29,16 +30,27 @@ public class ProductSubCategoriesRepository : IProductSubCategoriesRepository
 
     public void Add(ProductSubCategory subCategory)
     {
+        subCategory.Id = Guid.NewGuid();
+        subCategory.CreatedOn = DateTime.UtcNow;
+        subCategory.ModifiedOn = DateTime.UtcNow;
         _dbSet.Add(subCategory);
     }
 
     public void Update(ProductSubCategory subCategory)
     {
+        subCategory.ModifiedOn = DateTime.UtcNow;
         _dbSet.Update(subCategory);
     }
 
     public void Remove(ProductSubCategory subCategory)
     {
         _dbSet.Remove(subCategory);
+    }
+
+    public async Task<List<ProductSubCategory>> GetAllByCategoryIdAsync(Guid categoryId, CancellationToken cancellationToken)
+    {
+        return await _dbSet
+            .Where(sub => sub.CategoryId == categoryId)
+            .ToListAsync(cancellationToken);
     }
 }

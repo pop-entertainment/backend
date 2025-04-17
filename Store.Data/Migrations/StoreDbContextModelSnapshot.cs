@@ -60,8 +60,8 @@ namespace Store.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
-                    b.Property<Guid>("ClientId")
-                        .HasColumnType("uuid");
+                    b.Property<string>("ClientPhone")
+                        .HasColumnType("text");
 
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("timestamp with time zone");
@@ -76,8 +76,6 @@ namespace Store.Data.Migrations
                         .HasColumnType("numeric");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("ClientId");
 
                     b.ToTable("ClientOrders");
                 });
@@ -165,6 +163,9 @@ namespace Store.Data.Migrations
                     b.Property<decimal>("Price")
                         .HasColumnType("numeric");
 
+                    b.Property<int>("Quantity")
+                        .HasColumnType("integer");
+
                     b.Property<int>("Status")
                         .HasColumnType("integer");
 
@@ -209,17 +210,6 @@ namespace Store.Data.Migrations
                     b.HasIndex("CategoryId");
 
                     b.ToTable("SubCategories");
-                });
-
-            modelBuilder.Entity("Store.Domain.Entities.ClientOrder", b =>
-                {
-                    b.HasOne("Store.Domain.Entities.ClientInfo", "Client")
-                        .WithMany("Orders")
-                        .HasForeignKey("ClientId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Client");
                 });
 
             modelBuilder.Entity("Store.Domain.Entities.OrderItem", b =>
@@ -267,11 +257,6 @@ namespace Store.Data.Migrations
                         .IsRequired();
 
                     b.Navigation("Category");
-                });
-
-            modelBuilder.Entity("Store.Domain.Entities.ClientInfo", b =>
-                {
-                    b.Navigation("Orders");
                 });
 
             modelBuilder.Entity("Store.Domain.Entities.ClientOrder", b =>
